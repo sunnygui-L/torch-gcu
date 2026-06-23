@@ -1,0 +1,274 @@
+
+  /* 右侧布局 */
+  .wy-nav-content {
+    font-family: PingFang-SC-Medium;
+    min-height: 100vh;
+    max-width: 1100px;
+  }
+  
+  .wy-nav-content h1 {
+    width: 230px;
+    height: 40px;
+    overflow-wrap: break-word;
+    color: rgba(42, 44, 49, 1);
+    font-size: 28px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
+  .wy-nav-content h2 {
+    width: 230px;
+    height: 40px;
+    overflow-wrap: break-word;
+    color: rgb(42, 44, 49, 1);
+    font-size: 22px;
+    font-family: PingFangSC-regular;
+    font-weight: 500;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 66px;
+    cursor: auto;
+    pointer-events: none;
+  }
+  .rst-content h2{
+    margin-bottom: 16px;
+  }
+  
+  div.flex-box-pointer {
+    background-color: rgba(143, 136, 136, 0.1);
+  }
+  
+  
+  /* 块布局 */
+  /* 每行3列 */
+  div.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 10px;
+    
+    padding: 0;
+  }
+  div.flex-box-pointer {
+    cursor: auto;
+    flex-basis: calc(100%/3 - 10px);
+    min-height: 80px;
+    height: 150px;
+    max-height: 150px;
+    overflow: hidden;
+    padding: 10px;
+    background: #FDF8F8;
+    padding-top: 47px;
+  } 
+  
+  .flex-box-pointer p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .flex-box-pointer .std.std-ref {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+  
+  /* 每行1列 */
+  div.flex-container1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+  div.flex-box-pointer1 {
+  
+    flex-basis: calc(100%);
+    min-height: 70px;
+    height: 86px;
+    max-height: 150px;
+    overflow: hidden;
+    padding: 16px;
+    background: #FDF8F8;
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+  
+  .flex-box-pointer1 p {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  
+  .flex-box-pointer1 .std.std-ref {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  /* 左上角导航和搜索 */
+  .wy-side-nav-search {
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  .wy-side-nav-search>a {
+    padding: 18px 40px;
+    text-align: left;
+    display: block;
+    margin-bottom: 0;
+  }
+  
+  .wy-side-nav-search>a img.logo {
+    width: 187px;
+    height: 66px;
+  }
+  
+  .wy-side-nav-search>div.version {
+    color: #FAF8F9;
+    text-align: center;
+    padding: 3px 10px 15px;
+    font-size: smaller;
+    margin-bottom: 0;
+    margin-top: 0;
+    background: rgb(250 248 249 / 4%);
+  }
+  
+  .wy-side-nav-search > .homelink {
+    width: 100%;
+    padding: 12px 10px 5px;
+    text-align: center;
+    font-weight: bold;
+    border-top: 1px solid rgb(250 248 249 / 8%);
+    background: rgb(250 248 249 / 4%);
+  }
+  
+  form#rtd-search-form {
+    padding: 0;
+    position: relative;
+  }
+  
+  form#rtd-search-form::before {
+    content: '';
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAAEhyb7BAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAEqADAAQAAAABAAAAEgAAAACaqbJVAAABkklEQVQ4EY2TMUvDUBSFa4eOrYN2cBDRsUKFbsX/kN1R6SQO4h+QutbZ1d1/IDj5B9wEwQ6KqFjqIJQ6SPqdl7ybl9hGD5y8e849uXl9SSsVEMfxm9ascCq90I3VicxEbJnIteh8WgfxA3dgHJrP6J4zwg51X7POfNQ1uUxgBJ9g2zf97YlBR0OFPjyA33BiaYQC52akBd42TLbH2jMRJPGGcBBY7qj0KI8BRTsV2SYxrqD2cg1r4YQqxhrUs9fhHhxBhbusCRQAx15rRW/KNC8nzHVBtZqyqoE/r5w6U3EQhQl0Q6Z51B0Z4AJuwBMJMLaQCgzdqcMTXuAKHInqL+myCGnow/oYOq9bWIZHmh27qVjQ9AOm1Efw1y7w9FE8QOEVNnJzMPRahTv419HqHE4VBsPiIL1uYT/XWCDI1V06ubQshtYHJtyYWVKQO3Rp3kouhlmDOkThHe7mAqnAX4b+oV/Uq/Ny+u1dqEMsgwaM04C+j+w/NHcqJqEmbMF6MaMBUIOE/w0sDgk1QzTwHl7OABazLJtPHgq4AAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    background-size: 22px auto;
+    background-position: center;
+    background-color: rgba(250, 79, 74, 1);
+    height: 42px;
+    width: 42px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  form#rtd-search-form > input:first-child {
+    border-radius: 0;
+    border-color: #eee;
+    height: 42px;
+    font-size: 15px;
+    padding-left: 53px;
+    box-shadow: none;
+  }
+  
+  a:link {
+    color: rgba(250, 79, 74, 1);
+  }
+  
+  a:visited {
+    color: rgba(250, 79, 74, 1);
+  }
+  
+  a:hover {
+    color: #fbc3aa;
+  }
+  
+  /* 左侧菜单树形 */
+  .wy-menu-vertical li.toctree-l1 >p,
+  .wy-menu-vertical li.toctree-l1 >a,
+  .wy-menu-vertical li.toctree-l1 >a:visited,
+  .wy-menu-vertical .local-toc ul > li > a {
+    color: #FAF8F9;
+  }
+  
+  .wy-menu-vertical div.local-toc > ul > li.current > a,
+  .wy-menu-vertical div.local-toc > ul > li > a.current,
+  .wy-menu-vertical div.local-toc > ul > li > a.reference.internal.current,
+  .wy-menu-vertical li.toctree-l1.current a,
+  .wy-menu-vertical li a,
+  .wy-menu-vertical li p {
+      color: #292c31;
+  }
+  
+  /* 1,2级菜单的高度调整 */
+  .wy-menu-vertical li.toctree-l1>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+  }
+  /* 2级菜单的字号调整 */
+  .wy-menu-vertical li.toctree-l2>a,
+  .wy-menu-vertical li.toctree-l2.current li.toctree-l3>a,
+  .wy-menu-vertical li.toctree-l3.current li.toctree-l4>a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  /* 1,2级菜单hover的背景色 */
+  .wy-menu-vertical li.toctree-l1>a:hover,
+  .wy-menu-vertical li.toctree-l2>a:hover,
+  .wy-menu-vertical li.toctree-l2.current li.toctree-l3>a:hover,
+  .wy-menu-vertical li.toctree-l3.current li.toctree-l4>a:hover {
+    background-color: rgba(250, 79, 74, 1);
+    color: #FDF8F8;
+  }
+  
+  .wy-menu-vertical header, .wy-menu-vertical p.caption {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 28px;
+    margin: 8px 0 0;
+    color: #e98888;
+    text-transform: none;
+  }
+  .math {
+    text-align:right;
+  }
+  /* 确保行号容器可见 */
+  .linenodiv {
+    display: block !important;
+  }
+
+  /* 行号文本样式 */
+  .linenodiv pre {
+    color: #666;          /* 行号颜色 */
+    padding-right: 10px;  /* 行号与代码的间距 */
+    border-right: 1px solid #ddd; /* 行号右侧分隔线 */
+    text-align: right;    /* 行号右对齐 */
+  }
+
+  /* 代码块与行号对齐 */
+  div.highlight {
+    display: flex;        /* 让行号与代码在同一行 */
+    align-items: flex-start;
+  }
+
+  /* 修复代码块溢出问题 */
+  div.highlight pre {
+    overflow-x: auto;
+    flex: 1;
+  }
+  /* 底部栏 */
+  footer {
+    margin-top: 20px;
+  }

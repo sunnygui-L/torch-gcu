@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# 检查clang-format是否安装, 没有则安排
+if ! command -v clang-format >/dev/null 2>&1; then
+  echo "Info: clang-format is not installed. Attempting to install clang-format..."
+  # install clang-format
+  sudo apt-get install clang-format
+  if ! command -v clang-format >/dev/null 2>&1; then
+    echo "Error: clang-format is not installed and could not be installed automatically. Please install clang-format manually."
+    exit 1
+  else
+    echo "Info: clang-format has been installed successfully."
+  fi
+fi
+
+# 获取所有即将被提交的文件列表
+files_to_commit=$(git diff --cached --name-only --diff-filter=ACM)
+
+IGNORE_FILES=$(cat .clang-format-ignore | tr '\n' '|')
+
+# 检查文件扩展名是否为C++文件
+for file in $files_to_commit; do
+  if [[ $file == *.cpp ||$file == *.h || $file == *.hpp ]]; then
+    if [[ ! $file =~ $IGNORE_FILES ]]; then
+      # 使用clang-format对文件进行格式化，指定使用根目录的.clang-format文件
+      clang-format -style=file -i "$file"
+    fi
+  fi
+done
+
+# 检查文件是否有改动
+if ! git diff --quiet -- "$file"; then
+  echo "Error: '$file' has been modified by clang-format. Please stage the changes before committing."
+  exit 1
+fi
+
+exit 0

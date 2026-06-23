@@ -1,0 +1,6 @@
+file(GLOB _EFFICIENT_SRCS *.cpp *.cc *.h)
+
+list(APPEND EFFICIENT_SRCS ${_EFFICIENT_SRCS})
+
+# Pass to parent
+set(EFFICIENT_SRCS ${_EFFICIENT_SRCS} PARENT_SCOPE)

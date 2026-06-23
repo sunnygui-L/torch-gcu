@@ -1,0 +1,42 @@
+/*
+ * Copyright 2023-2025 Enflame. All Rights Reserved.
+ */
+
+#pragma once
+#include <fstream>
+#include <ostream>
+#include <set>
+
+#include "SampleListener.h"
+
+namespace libkineto_gcu {
+
+class EventCSVLogger : public SampleListener {
+ public:
+  void update(const Config& config) override;
+  void handleSample(int device, const Sample& sample,
+                    bool from_new_version) override;
+
+ protected:
+  EventCSVLogger() : out_(nullptr) {}
+
+  std::ostream* out_;
+  std::set<std::string> eventNames_;
+  std::vector<int> percentiles_;
+};
+
+class EventCSVFileLogger : public EventCSVLogger {
+ public:
+  void update(const Config& config) override;
+
+ private:
+  std::ofstream of_;
+  std::string filename_;
+};
+
+class EventCSVDbgLogger : public EventCSVLogger {
+ public:
+  void update(const Config& config) override;
+};
+
+}  // namespace libkineto_gcu

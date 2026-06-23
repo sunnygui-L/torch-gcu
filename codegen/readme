@@ -1,0 +1,5 @@
+不推荐算子对接说明
+
+Tensor repeat(const Tensor & self, c10::SymIntArrayRef repeats); // {"schema": "aten::repeat(Tensor self, SymInt[] repeats) -> Tensor", "dispatch": "True", "default": "True"}
+
+torch 内部实现 at::native::repeat（https://github.com/pytorch/pytorch/blob/v2.3.0/aten/src/ATen/native/TensorShape.cpp#L1508）会将 tensor 维度扩大一倍，但是 topsatenTensor 有一个维度 <= 8 的限制，扩大一倍会有 case 超出限制，触发拦截。

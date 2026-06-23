@@ -1,0 +1,49 @@
+build/
+dist/
+*.egg-info/
+*/**/__pycache__
+*.swp
+*.pyc
+*.pth
+.circleci
+compile_commands.json
+*.gdb_history
+bazel-*
+
+# BEGIN NOT-CLEAN-FILES (setup.py handles this marker. Do not change.)
+#
+# Below files are not deleted by "setup.py clean".
+
+third_party/tops/
+
+sample/bin
+
+# Generated files
+.cache
+torch_gcu/csrc/aten/GCUNativeFunctions.h
+torch_gcu/csrc/aten/GCU*Functions_gen.cpp
+torch_gcu/csrc/aten/*Operators.h
+torch_gcu/csrc/aten/RegisterGCU.cpp
+torch_gcu/csrc/aten/RegisterOptionalGCU.cpp
+torch_gcu/csrc/aten/RegisterTorchvisionGCU.cpp
+torch_gcu/csrc/aten/register_fallback_ops_gen.cpp
+torch_gcu/csrc/aten/aot_ops/gcu_aot_ops.h
+torch_gcu/csrc/aten/aot_ops/gcu_aot_ops.cpp
+torch_gcu/csrc/aten/aot_ops/topsaten_bridge.h
+torch_gcu/csrc/aten/foreach_op_utils.h
+torch_gcu/csrc/aten/shape_inference/aotops_shape_infer_func.h
+torch_gcu/csrc/aten/shape_inference/gcu_structured_shape_infer.h
+torch_gcu/csrc/aten/shape_inference/shape_infer_func.h
+torch_gcu/csrc/aten/shape_inference/structured_shape_infer_func.cpp
+torch_gcu/version.py
+
+tops_dependencies*
+
+# vscode
+.vscode
+
+# test log
+test/test_log*
+test/.hypothesis/*
+**/file_asm_code.txt
+**/file_c_code.txt

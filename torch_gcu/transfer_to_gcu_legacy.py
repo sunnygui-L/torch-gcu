@@ -1,0 +1,2 @@
+import torch_gcu
+from torch_gcu import transfer_to_gcu

@@ -1,0 +1,6 @@
+file(GLOB _PYTHON_SRCS *.cpp *.cc)
+
+list(APPEND PYTHON_SRCS ${_PYTHON_SRCS})
+
+# Pass to parent
+set(PYTHON_SRCS ${PYTHON_SRCS} PARENT_SCOPE)

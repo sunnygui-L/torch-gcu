@@ -1,0 +1,65 @@
+# example
+# - name: random_.from
+#   s60: all
+#   l600:
+#     - self: Char,Int
+# for tensor inputs, dtype is ScalarType.
+fallback:
+- name: _softmax_backward_data.out
+  s60: all
+- name: convolution_backward
+  s60: all
+- name: embedding_dense_backward
+  s60: all
+- name: gelu_backward.grad_input
+  s60: all
+- name: _grouped_mm
+  s60: all
+- name: max_pool3d_with_indices
+  l600: all
+- name: max_pool3d_with_indices.out
+  l600: all
+- name: native_layer_norm_backward
+  s60: all
+- name: silu_backward
+  s60: all
+- name: silu_backward.grad_input
+  s60: all
+- name: tanh_backward.grad_input
+  s60: all
+- name: replication_pad1d.out
+  s60: all
+- name: log_sigmoid_forward
+  s60: all
+- name: log_sigmoid_forward.output
+  s60: all
+- name: _fused_adamw_
+  s60: all
+- name: _fused_adamw_.tensor_lr
+  s60: all
+- name: _log_softmax_backward_data.out
+  s60: all
+- name: _upsample_bicubic2d_aa.out
+  s60: all
+- name: _upsample_nearest_exact1d.out
+  s60: all
+- name: _upsample_nearest_exact3d.out
+  s60: all
+- name: nll_loss_backward.grad_input
+  s60: all
+- name: scatter_reduce.two_out
+  s60:
+      - reduce: prod,mean
+  l600: all
+- name: sinc.out
+  l600: all
+- name: sinh.out
+  l600: all
+- name: sigmoid_backward.grad_input
+  s60: all
+- name: unique_consecutive
+  l600: all
+- name: bincount
+  s60: all
+- name: bincount.out
+  s60: all

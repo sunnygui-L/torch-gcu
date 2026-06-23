@@ -1,0 +1,6 @@
+file(GLOB_RECURSE _ATEN_SRCS *.cpp *.cc)
+
+list(APPEND ATEN_SRCS ${_ATEN_SRCS})
+
+# Pass to parent
+set(ATEN_SRCS ${ATEN_SRCS} PARENT_SCOPE)

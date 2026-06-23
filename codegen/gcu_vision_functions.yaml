@@ -1,0 +1,11 @@
+backend: GCU
+cpp_namespace: torch_gcu
+supported:
+- name: nms
+  dynamic_output_shape: true
+- name: ps_roi_align
+- name: ps_roi_pool
+  disable: true
+- name: roi_align
+- name: roi_pool
+  disable: true

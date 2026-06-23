@@ -1,0 +1,62 @@
+#!/bin/bash
+
+set -u -o pipefail
+
+#
+# opst.sh mean 'op simulation tester' which is used to run op test against gcusim
+#
+current_dir="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
+
+btree=@CMAKE_BINARY_DIR@
+
+export LD_LIBRARY_PATH="${btree}/opt/tops/lib:/opt/tops/lib"
+export INTERNAL_GCU_SIM=LIBRA                    # =LIBRA only for now
+export GCUSIM_LOG=0                              # =[0,1,2,3,4,5] 0=OFF,
+export ENABLE_SIP_LOG=0                          # =[0,1,2]       0=OFF, 1=info, 2=trace
+export GLOG_v=0                                  # =[0,1,2,3,4,5] 0=OFF, 1-5 diffrent level
+
+echo "export INTERNAL_GCU_SIM=LIBRA"
+echo "export LD_LIBRARY_PATH=${btree}/opt/tops/lib:/opt/tops/lib"
+echo "export GCUSIM_LOG=0"                       # =[0,1,2,3,4,5] 0=OFF,
+echo "export ENABLE_SIP_LOG=0"                   # =[0,1,2]       0=OFF, 1=info, 2=trace
+echo "export GLOG_v=0"                           # =[0,1,2,3,4,5] 0=OFF, 1-5 diffrent level
+
+help() {
+  # check if test specified
+  if [ ${#TESTS[@]} -eq 0 ]; then
+    echo "No arguments provided. Usage: ./opst.sh <test target>"
+    echo ""
+    echo "==========================================================="
+    echo "=====   ./opst is a Op Simulation Tester or Launcher   ===="
+    echo "==========================================================="
+  fi
+}
+
+test() {
+  # check if FD(0) as terminal, true=terminal, means no pipe input
+  if [ -t 0 ]; then
+      TESTS=("$@")
+  else
+      read -d '' -r -a TESTS
+  fi
+
+
+  #
+  # launch each individual op test
+  #
+  for t in "${TESTS[@]}"; do
+    if [[ -e "${t}" ]]; then
+      "${t}"
+    else
+      echo "'${t}' test case doesn't exist."
+    fi
+  done
+}
+
+
+if [ $# -eq 0 ]; then
+  echo "only set env!"
+elif [ $# -gt 0 ]; then
+  shift
+  test "$@"
+fi
