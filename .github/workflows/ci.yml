@@ -69,7 +69,7 @@ jobs:
             bash -c 'sudo git config --global --add safe.directory /app/torch_gcu;sudo ./torch_gcu/.pipeline/build.sh ci_build;sudo ./torch_gcu/test/install_env.sh;sudo cd torch_gcu/test;sudo ./torch_gcu/test/run_all_test.sh op'
 
       - name: Upload wheel artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: torch-gcu-wheel
           path: ./torch_gcu/dist/*.whl
